@@ -773,6 +773,12 @@ DISABLE_LTO	+= $(DISABLE_CFI)
 export DISABLE_CFI
 endif
 
+ifdef CONFIG_SHADOW_CALL_STACK
+CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
+KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
+export CC_FLAGS_SCS
+endif
+
 ifdef CONFIG_LLVM_POLLY
 OPT_FLAGS	:= -mllvm -polly \
 		   -mllvm -polly-run-dce \
