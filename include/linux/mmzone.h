@@ -134,6 +134,9 @@ enum zone_stat_item {
 	NR_PAGETABLE,		/* used for pagetables */
 	NR_KERNEL_STACK_KB,	/* measured in KiB */
 	NR_KAISERTABLE,
+#if IS_ENABLED(CONFIG_SHADOW_CALL_STACK)
+	NR_KERNEL_SCS_BYTES,	/* measured in bytes */
+#endif
 	NR_BOUNCE,
 	/* Second 128 byte cacheline */
 #if IS_ENABLED(CONFIG_ZSMALLOC)
