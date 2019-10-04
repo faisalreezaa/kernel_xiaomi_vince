@@ -850,7 +850,7 @@ static void __nocfi kpti_install_ng_mappings(const struct arm64_cpu_capabilities
 	if (kpti_applied)
 		return;
 
-	remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
+	remap_fn = (void *)__pa_function(idmap_kpti_install_ng_mappings);
 
 	scs_save(current);
 
