@@ -82,7 +82,7 @@ build_kernel() {
 DATE=`date`
 BUILD_START=$(date +"%s")
 make LLVM=1 LLVM_IAS=1 defconfig
-make LLVM=1 LLVM_IAS=1 -j$(nproc --all) |& tee -a $HOME/build/build${BUILD}.txt
+make LLVM=1 LLVM_IAS=1 LD=$TC_PATH/bin/ld.lld -j$(nproc --all) |& tee -a $HOME/build/build${BUILD}.txt
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 }
